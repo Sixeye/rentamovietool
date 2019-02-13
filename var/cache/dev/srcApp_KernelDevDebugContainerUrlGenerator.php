@@ -20,6 +20,9 @@ class srcApp_KernelDevDebugContainerUrlGenerator extends Symfony\Component\Routi
         $this->defaultLocale = $defaultLocale;
         if (null === self::$declaredRoutes) {
             self::$declaredRoutes = [
+        'hello' => [['name', 'age'], ['name' => 'anonymous', 'age' => 18, '_controller' => 'App\\Controller\\HomeController::hello'], [], [['variable', '/', '[^/]++', 'age', true], ['text', '/age'], ['variable', '/', '[^/]++', 'name', true], ['text', '/hello']], [], []],
+        'hello_base' => [[], ['_controller' => 'App\\Controller\\HomeController::hello'], [], [['text', '/hello']], [], []],
+        'hello_prenom' => [['name'], ['name' => 'anonymous', '_controller' => 'App\\Controller\\HomeController::hello'], [], [['variable', '/', '[^/]++', 'name', true], ['text', '/hello']], [], []],
         'homepage' => [[], ['_controller' => 'App\\Controller\\HomeController::home'], [], [['text', '/']], [], []],
         '_twig_error_test' => [['code', '_format'], ['_controller' => 'twig.controller.preview_error::previewErrorPageAction', '_format' => 'html'], ['code' => '\\d+'], [['variable', '.', '[^/]++', '_format', true], ['variable', '/', '\\d+', 'code', true], ['text', '/_error']], [], []],
         '_wdt' => [['token'], ['_controller' => 'web_profiler.controller.profiler::toolbarAction'], [], [['variable', '/', '[^/]++', 'token', true], ['text', '/_wdt']], [], []],
